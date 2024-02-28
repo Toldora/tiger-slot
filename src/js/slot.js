@@ -65,7 +65,7 @@ const onClickSlot = () => {
 
         setTimeout(() => {
           openSignUpModal({ isBlocked: true });
-        }, 500);
+        }, 2000);
 
         break;
 
