@@ -28,9 +28,10 @@
   // Z-indexes
   --z-modal-overlay: 14;
   --z-modal: 9;
+  --z-bonus-section: 6;
   --z-wheel-btn: 5;
-  --z-common-decor: 4;
-  --z-wheel: 3;
+  --z-tiger-logo: 4;
+  --z-slot: 3;
   --z-bottom-decor: 2;
   --z-tiger-decor: 1;
   --z-default: 1;
@@ -56,6 +57,7 @@
   --fast-transition-duration: 0.2s;
   --medium-transition-duration: 0.3s;
   --slow-transition-duration: 0.4s;
+  --slow-flash-transition-duration: 0.6s;
   --hover-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --slide-transition-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
   --fade-transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -112,5 +114,14 @@
     @include respond-above(xmedium) {
       --wheel-size-landscape: #{min(46vw, vh(63))};
     }
+  }
+
+  // Slot
+  @media (orientation: portrait) {
+    --slot-cell-size: #{min(29vw, to-rem(160))};
+  }
+
+  @media (orientation: landscape) {
+    --slot-cell-size: #{min(11.5vw, vh(15), to-rem(200))};
   }
 }

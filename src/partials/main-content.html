@@ -1,14 +1,37 @@
 <main class="main container">
-  {{> bonuses-section}} {{> wheel }}
+  <picture class="main__tiger-logo">
+    <source
+      type="image/webp"
+      srcset="
+        /img/decor/tiger-logo.webp    405w,
+        /img/decor/tiger-logo@2x.webp 810w
+      "
+      sizes="1052px"
+    />
+    <source
+      type="image/png"
+      srcset="/img/decor/tiger-logo.png 405w, /img/decor/tiger-logo@2x.png 810w"
+      sizes="405px"
+    />
+    <img
+      src="/img/decor/tiger-logo.png"
+      width="405"
+      height="228"
+      alt=""
+      loading="lazy"
+    />
+  </picture>
+  {{> bonuses-section}} {{> slot }}
   <button
-    class="main__cta-btn js-spin-wheel-btn"
+    class="main__cta-btn js-spin-slot-btn"
     type="button"
-    aria-label="Girar"
+    aria-label="Gire e gahne"
   >
+    {{> svg-icon class='main__cta-btn-icon' width="36" height="36"
+    name='repeat-arrow'}}
     <span class="main__cta-btn-content">Girar</span>
   </button>
   <div class="main__bottom-decor"></div>
-  <div class="main__tiger-decor"></div>
-  <div class="main__jewelry-decor"></div>
-  <div class="main__orange-decor"></div>
+  <div class="main__tiger-1-decor"></div>
+  <div class="main__tiger-2-decor"></div>
 </main>

@@ -14,13 +14,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
 
-  @media (orientation: landscape) {
-    padding-top: to-rem(70);
-    padding-bottom: vh(11);
+.main__tiger-logo {
+  position: relative;
+  z-index: var(--z-tiger-logo);
+  transform: translateY(30%);
 
-    @include respond-above(medium) {
-      padding-top: to-rem(100);
+  img {
+    width: auto;
+
+    @media (orientation: portrait) {
+      height: vh(12);
+    }
+
+    @media (orientation: landscape) {
+      height: vh(20);
     }
   }
 }
@@ -33,19 +42,15 @@
   z-index: var(--z-wheel-btn);
   height: to-rem(60);
   width: 100%;
-  max-width: min(
-    var(--wheel-size-portrait, var(--wheel-size-landscape)),
-    to-rem(400)
-  );
+  max-width: min(var(--slot-cell-size) * 3.3, to-rem(530));
   flex-shrink: 0;
-  transform: translateY(-30%);
   display: flex;
   align-items: center;
   justify-content: center;
   background-image: linear-gradient(180deg, #fedf00 0%, #ff7a00 100%);
   border-radius: var(--border-radius);
   box-shadow: 0 to-rem(16) to-rem(38) 0 rgba(var(--col-tibetan-yellow-rgb), 70%);
-  font-size: to-rem(36);
+  font-size: to-rem(34);
   text-transform: uppercase;
   overflow: hidden;
   cursor: default;
@@ -57,16 +62,17 @@
   }
 
   @media (orientation: landscape) {
-    max-width: min(var(--wheel-size-landscape) * 0.7, to-rem(500));
+    font-size: min(4vw, to-rem(34));
+    transform: translateY(-15%);
 
     @include respond-above(medium) {
-      height: vh(10);
-      font-size: min(vh(7), to-rem(52));
+      height: vh(11);
+      font-size: min(vh(7), to-rem(48));
     }
   }
 
   @media (orientation: portrait) {
-    max-width: calc(var(--wheel-size-portrait) * 0.85);
+    transform: translateY(15%);
 
     @include respond-above(tablet) {
       height: vh(6);
@@ -85,9 +91,9 @@
     z-index: var(--z-hidden);
     background-image: radial-gradient(
       54.57% 247.08% at 51% 0%,
-      #bdff00 0%,
-      #04bf00 50%,
-      #007e0d 100%
+      #f00 0%,
+      #bf0100 50%,
+      #7e0200 100%
     );
     box-shadow: to-rem(5) -#{to-rem(9)} to-rem(7) 0
       rgba(var(--col-total-black-rgb), 45%) inset;
@@ -98,7 +104,32 @@
       box-shadow: 0 to-rem(16) to-rem(46) 0
         rgba(var(--col-tibetan-yellow-rgb), 70%);
       cursor: pointer;
-      transform: translateY(-30%) scale(1.1);
+
+      @media (orientation: portrait) {
+        transform: translateY(15%) scale(1.1);
+      }
+
+      @media (orientation: landscape) {
+        transform: translateY(-15%) scale(1.1);
+      }
+
+      .main__cta-btn-icon {
+        transform: rotate(270deg);
+      }
+    }
+  }
+}
+
+.main__cta-btn-icon {
+  margin-right: to-rem(14);
+  transition: transform var(--hover-transition);
+
+  @media (orientation: landscape) {
+    height: auto;
+    width: min(4vw, to-rem(28));
+
+    @include respond-above(medium) {
+      width: min(vh(6), to-rem(52));
     }
   }
 }
@@ -130,66 +161,50 @@
   }
 }
 
-.main__tiger-decor {
-  --aspect-ratio: 0.843;
+.main__tiger-1-decor {
+  --aspect-ratio: 0.829;
 
   position: absolute;
   z-index: var(--z-tiger-decor);
   aspect-ratio: var(--aspect-ratio);
   user-select: none;
 
-  @include bg-image('/img/decor/tiger');
+  @include bg-image('/img/decor/tiger-1');
 
   @media (orientation: portrait) {
-    right: 10%;
-    bottom: 0;
-    width: min(76vw, vh(64) * var(--aspect-ratio));
+    right: 5%;
+    bottom: 6%;
+    width: min(68vw, vh(54) * var(--aspect-ratio));
     transform: translateX(50%);
   }
 
   @media (orientation: landscape) {
-    left: calc(50% + var(--wheel-size-landscape) / 2);
-    bottom: 5%;
-    width: min(35vw, vh(72) * var(--aspect-ratio));
-    transform: translateX(-20%);
+    left: 69%;
+    bottom: 0;
+    width: min(24vw, vh(51) * var(--aspect-ratio));
   }
 }
 
-.main__jewelry-decor {
-  --aspect-ratio: 1;
+.main__tiger-2-decor {
+  --aspect-ratio: 1.225;
 
   position: absolute;
-  z-index: var(--z-common-decor);
-  top: 50%;
+  z-index: var(--z-tiger-decor);
   aspect-ratio: var(--aspect-ratio);
+  user-select: none;
 
-  @include bg-image('/img/decor/jewelry-decor');
+  @include bg-image('/img/decor/tiger-2');
 
   @media (orientation: portrait) {
-    left: calc(50% - var(--wheel-size-portrait) / 3);
-    width: min(24vw, var(--vh, 1vh) * 13 * var(--aspect-ratio));
-    transform: translate(-85%, -100%);
+    left: 9%;
+    bottom: 5%;
+    width: min(62vw, vh(48.5) * var(--aspect-ratio));
+    transform: translateX(-50%);
   }
 
   @media (orientation: landscape) {
-    left: calc(50% - var(--wheel-size-landscape) / 2);
-    width: min(13.5vw, var(--vh, 1vh) * 24 * var(--aspect-ratio));
-    transform: translate(-53%, -75%);
-  }
-}
-
-.main__orange-decor {
-  @media (orientation: landscape) {
-    --aspect-ratio: 1;
-
-    position: absolute;
-    z-index: var(--z-common-decor);
-    aspect-ratio: var(--aspect-ratio);
-    top: calc(50% + var(--wheel-size-landscape) / 3);
-    left: calc(50% - var(--wheel-size-landscape) / 3);
-    width: min(16vw, vh(24) * var(--aspect-ratio));
-    transform: translate(-55%, -45%);
-
-    @include bg-image('/img/decor/orange-decor');
+    right: 66%;
+    bottom: 0;
+    width: min(26vw, vh(38) * var(--aspect-ratio));
   }
 }
