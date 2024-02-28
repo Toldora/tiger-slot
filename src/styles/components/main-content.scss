@@ -39,7 +39,7 @@
   --border-radius: #{to-rem(14)};
 
   position: relative;
-  z-index: var(--z-wheel-btn);
+  z-index: var(--z-slot-btn);
   height: to-rem(60);
   width: 100%;
   max-width: min(var(--slot-cell-size) * 3.3, to-rem(530));
@@ -100,7 +100,7 @@
   }
 
   @include hover {
-    body:not(.wheel-stage-3) & {
+    body.spin-finished:not(.slot-stage-3) & {
       box-shadow: 0 to-rem(16) to-rem(46) 0
         rgba(var(--col-tibetan-yellow-rgb), 70%);
       cursor: pointer;

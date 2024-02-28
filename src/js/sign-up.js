@@ -141,7 +141,7 @@ function togglePasswordVisibility() {
 
 export const openSignUpModal = ({ isBlocked } = {}) => {
   const markup = handlebars.compile(template)({
-    wheelStage: globalState.wheelStage,
+    slotStage: globalState.slotStage,
   });
 
   modalContentRef.innerHTML = '';

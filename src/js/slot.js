@@ -2,12 +2,10 @@ import { globalState } from '@/js/global-state';
 import { setToLS } from '@/js/local-storage';
 import { openSignUpModal } from '@/js/sign-up';
 
-const slotRef = document.querySelector('.js-slot');
+// const slotRef = document.querySelector('.js-slot');
 const spinSlotBtnRef = document.querySelector('.js-spin-slot-btn');
 const bonusesSectionRef = document.querySelector('.js-bonuses-section');
 const bodyRef = document.body;
-// const wheelMainPartRef = wheelRef.querySelector('.js-wheel-main-part');
-// const wheelMainPartStyles = getComputedStyle(wheelMainPartRef);
 const rootStyles = getComputedStyle(document.documentElement);
 
 const state = {
@@ -19,7 +17,7 @@ const onClickSlot = () => {
 
   state.isSpinning = true;
 
-  switch (globalState.wheelStage) {
+  switch (globalState.slotStage) {
     case 1:
       bodyRef.classList.add('slot-stage-2');
       bodyRef.classList.remove('slot-stage-1', 'spin-finished');
@@ -48,11 +46,11 @@ const onClickSlot = () => {
     (slotAnimationDuration + slotAnimationDelay * slotColumnQuantity) * 1000;
 
   setTimeout(() => {
-    switch (globalState.wheelStage) {
+    switch (globalState.slotStage) {
       case 1:
         bodyRef.classList.add('spin-finished');
         bonusesSectionRef.classList.add('bonuses-section--visible-first-bonus');
-        globalState.wheelStage += 1;
+        globalState.slotStage += 1;
 
         break;
 
@@ -61,13 +59,13 @@ const onClickSlot = () => {
         bonusesSectionRef.classList.add(
           'bonuses-section--visible-second-bonus',
         );
-        globalState.wheelStage += 1;
+        globalState.slotStage += 1;
 
-        // setToLS('isLastStage', globalState.isLastStage);
+        setToLS('isLastStage', globalState.isLastStage);
 
-        // setTimeout(() => {
-        //   openSignUpModal({ isBlocked: true });
-        // }, 500);
+        setTimeout(() => {
+          openSignUpModal({ isBlocked: true });
+        }, 500);
 
         break;
 
@@ -79,15 +77,15 @@ const onClickSlot = () => {
   }, delay);
 };
 
-export const setWheelLastStage = () => {
-  bodyRef.classList.add('wheel-stage-3');
-  bodyRef.classList.remove('wheel-stage-1', 'wheel-stage-2');
+export const setSlotLastStage = () => {
+  bodyRef.classList.add('slot-stage-3');
+  bodyRef.classList.remove('slot-stage-1', 'slot-stage-2');
   bonusesSectionRef.classList.add(
     'bonuses-section--visible-first-bonus',
     'bonuses-section--visible-second-bonus',
   );
-  globalState.wheelStage = 3;
+  globalState.slotStage = 3;
 };
 
-// wheelRef.addEventListener('click', onClickSlot);
+// slotRef.addEventListener('click', onClickSlot);
 spinSlotBtnRef.addEventListener('click', onClickSlot);

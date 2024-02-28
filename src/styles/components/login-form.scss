@@ -14,7 +14,7 @@
   text-align: center;
 
   @include respond-to(small) {
-    body:not(.wheel-stage-3) & {
+    body:not(.slot-stage-3) & {
       padding-left: var(--close-modal-btn-size-small, 0);
     }
   }

@@ -29,7 +29,7 @@
   --z-modal-overlay: 14;
   --z-modal: 9;
   --z-bonus-section: 6;
-  --z-wheel-btn: 5;
+  --z-slot-btn: 5;
   --z-tiger-logo: 4;
   --z-slot: 3;
   --z-bottom-decor: 2;
@@ -94,27 +94,6 @@
   // Auth type radio
   --auth-type-radio-bg-hover: rgba(var(--col-total-white-rgb), 15%);
   --auth-type-radio-bg-checked: rgba(var(--col-total-white-rgb), 35%);
-
-  // Wheel
-  @media (orientation: portrait) {
-    --wheel-size-portrait: #{min(90vw, vh(55))};
-
-    @include respond-above(tablet) {
-      --wheel-size-portrait: #{min(85vw, vh(62))};
-    }
-  }
-
-  @media (orientation: landscape) {
-    --wheel-size-landscape: #{min(52vw, vh(66))};
-
-    @include respond-above(medium) {
-      --wheel-size-landscape: #{min(52vw, vh(63))};
-    }
-
-    @include respond-above(xmedium) {
-      --wheel-size-landscape: #{min(46vw, vh(63))};
-    }
-  }
 
   // Slot
   @media (orientation: portrait) {

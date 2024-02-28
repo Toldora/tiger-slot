@@ -6,8 +6,7 @@ import '@/plugins';
 
 import '@/js/global-state';
 import '@/js/modal';
-import '@/js/slot';
-// import { setWheelLastStage } from '@/js/wheel';
+import { setSlotLastStage } from '@/js/slot';
 import { openSignUpModal } from '@/js/sign-up';
 import '@/js/terms-and-privacy';
 import useViewportSizes from '@/js/use-viewport-sizes';
@@ -15,20 +14,20 @@ import { getFromLS } from '@/js/local-storage';
 
 useViewportSizes();
 
-// const isAlreadyRegistered = getFromLS('isAlreadyRegistered');
-// if (isAlreadyRegistered) {
-//   const searchString = queryString.parse(window.location.search);
+const isAlreadyRegistered = getFromLS('isAlreadyRegistered');
+if (isAlreadyRegistered) {
+  const searchString = queryString.parse(window.location.search);
 
-//   searchString['sign-in'] = true;
-//   const stringifiedSearch = queryString.stringify(searchString);
+  searchString['sign-in'] = true;
+  const stringifiedSearch = queryString.stringify(searchString);
 
-//   window.location.replace(
-//     `${import.meta.env.VITE_REDIRECT_URL}/?${stringifiedSearch}`,
-//   );
-// }
+  window.location.replace(
+    `${import.meta.env.VITE_REDIRECT_URL}/?${stringifiedSearch}`,
+  );
+}
 
-// const isLastStage = getFromLS('isLastStage');
-// if (isLastStage) {
-//   setWheelLastStage();
-//   openSignUpModal({ isBlocked: true });
-// }
+const isLastStage = getFromLS('isLastStage');
+if (isLastStage) {
+  setSlotLastStage();
+  openSignUpModal({ isBlocked: true });
+}
