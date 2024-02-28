@@ -81,10 +81,9 @@ $slot-full-turnover: 175%;
     width: calc(100% - var(--outer-border-width) * 2);
     border-radius: var(--outer-border-radius);
     z-index: var(--z-hidden);
-    background-color: #e6ca88;
+    background-color: var(--col-crayola);
     box-shadow: -#{to-rem(6)} -#{to-rem(4)} to-rem(5)
       rgba(var(--col-total-black-rgb), 35%) inset;
-
     background-repeat: no-repeat;
     background-position: center, center 51%;
     background-image: url('/img/slot/verticals.png'),
@@ -117,7 +116,6 @@ $slot-full-turnover: 175%;
 .slot__column {
   display: flex;
   flex-direction: column;
-
   background-repeat: repeat-y;
   background-position: top;
   background-size: 100%;
