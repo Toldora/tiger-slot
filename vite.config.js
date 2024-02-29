@@ -2,7 +2,6 @@ import { defineConfig, loadEnv } from 'vite';
 import handlebars from 'vite-plugin-handlebars';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
-import autoprefixer from 'autoprefixer';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -49,9 +48,6 @@ export default defineConfig(({ mode }) => {
         },
       },
       devSourcemap: true,
-      postcss: {
-        plugins: [autoprefixer({})],
-      },
     },
     resolve: {
       alias: {
